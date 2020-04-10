@@ -1,4 +1,5 @@
 import React, {useState} from 'react'
+import Error from './Error';
 
 const Formulario = ({busqueda, setBusqueda, setConsultar}) => {
 
@@ -33,8 +34,10 @@ const Formulario = ({busqueda, setBusqueda, setConsultar}) => {
     }
     return ( 
         <form onSubmit={handleSubmit}>
-             { error ? <p className="alert alert-danger error text-danger">Todos los campos son obligatorios </p> : null}
             <div className="form-group">
+              
+              { error ? <Error mensaje="Tiene que llenar todos los campos"/> : null }
+
               <input type="text" name="ciudad" onChange={handleChange} value={ciudad} id="ciudad" className="form-control" placeholder="Ciudad" aria-describedby="helpId"/>
             </div>
             <div className="form-group">
