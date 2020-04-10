@@ -14,7 +14,18 @@ const Clima = ({resultado}) => {
         <div className="card text-left">
           <div className="card-body">
             <h4 className="card-title">El clima de {name} es:</h4>
-            <p className="card-text temperatura">{parseFloat(main.temp-kelvin,2).toFixed(2)}</p>
+            <h1 className="temperatura text-center">
+                {parseFloat(main.temp-kelvin,2).toFixed(2)} 
+                <span>&#x2103;</span>
+            </h1>
+            <p className="text-center">Temperatura Máxima:
+                {parseFloat(main.temp_max-kelvin,2).toFixed(2)} 
+                <span>&#x2103;</span>
+            </p>
+            <p className="text-center">Temperatura Minima:
+                {parseFloat(main.temp_min-kelvin,2).toFixed(2)} 
+                <span>&#x2103;</span>
+            </p>
           </div>
         </div>
      );
