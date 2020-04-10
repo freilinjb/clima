@@ -12,11 +12,6 @@ nav .brand-logo {
   color: white;
 }
 
-input[type=text]:not(.browser-default) {
-  border-bottom: 1px solid white;
-  color: white;
-}
-
 .contenedor-form {
   padding: 3rem 0 1px 0;
   background-color: #03a9f4
