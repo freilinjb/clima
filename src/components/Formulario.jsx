@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const Formulario = ({busqueda, setBusqueda}) => {
+const Formulario = ({busqueda, setBusqueda, setConsultar}) => {
 
     const [error, setError] = useState(false)
 
@@ -27,8 +27,9 @@ const Formulario = ({busqueda, setBusqueda}) => {
 
         setError(false);
 
-
         //Pasar al componente Principal
+        //Va detectar cuando vayamos a realizar una consulta
+        setConsultar(true);
     }
     return ( 
         <form onSubmit={handleSubmit}>

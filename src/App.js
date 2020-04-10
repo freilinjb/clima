@@ -7,14 +7,16 @@ function App() {
   const [busqueda, setBusqueda] = useState({
     ciudad: '',
     pais: ''
-});
+  });
+
+  const [consultar, setConsultar] = useState(false);
 
   const { ciudad, pais } = busqueda;
 
   useEffect(() => {
     console.log(ciudad);
     
-  },[ciudad, pais]);
+  },[consultar]);
 
 
   return (
@@ -25,7 +27,7 @@ function App() {
       <div className="container">
         <div className="row">
           <div className="col-lg-6 col-sm-12">
-            <Formulario busqueda={busqueda} setBusqueda={setBusqueda}/>
+            <Formulario busqueda={busqueda} setBusqueda={setBusqueda} setConsultar={setConsultar}/>
           </div>
           <div className="col-lg-6 col-sm-12 ">
             1
