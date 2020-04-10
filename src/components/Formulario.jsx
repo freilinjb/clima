@@ -1,5 +1,4 @@
 import React, {useState} from 'react'
-import 
 import Error from './Error';
 
 const Formulario = ({busqueda, setBusqueda, setConsultar}) => {

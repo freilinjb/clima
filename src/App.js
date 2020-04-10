@@ -39,7 +39,7 @@ function App() {
     }
     consultarAPI();
 
-  },[consultar]);
+  },[consultar, ciudad, pais]);
 
   let componente;
   //Carga condicional de componente
