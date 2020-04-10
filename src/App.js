@@ -1,6 +1,7 @@
 import React, {Fragment, useState, useEffect} from 'react';
 import Header from './components/Header';
 import Formulario from './components/Formulario';
+import Clima from './components/Clima';
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
   });
 
   const [consultar, setConsultar] = useState(false);
+  const [resultado, setResultado] = useState({});
 
   const { ciudad, pais } = busqueda;
 
@@ -22,14 +24,12 @@ function App() {
 
         const respuesta = await fetch(url);
         const resultado = await respuesta.json();
-
-        console.log(resultado);
+        setResultado(resultado);
       }
-      
     }
-      
-  },[consultar]);
+    consultarAPI();
 
+  },[consultar]);
 
   return (
     <Fragment>
@@ -42,7 +42,7 @@ function App() {
             <Formulario busqueda={busqueda} setBusqueda={setBusqueda} setConsultar={setConsultar}/>
           </div>
           <div className="col-lg-6 col-sm-12 ">
-            1
+            <Clima resultado={resultado}/> 
           </div>
         </div>
       </div>
