@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import Error from './Error';
+import PropTypes from 'prop-types';
 
 const Formulario = ({busqueda, setBusqueda, setConsultar}) => {
 
@@ -56,6 +57,13 @@ const Formulario = ({busqueda, setBusqueda, setConsultar}) => {
             <button type="submit" className="btn btn-block btn-lg btn-warning text-dark mb-5">Buscar Clima</button>
         </form>
      );
+}
+
+Formulario.propTypes = {
+  busqueda: PropTypes.object.isRequired,
+  setBusqueda: PropTypes.func.isRequired,
+  setConsultar: PropTypes.func.isRequired
+
 }
  
 export default Formulario;
