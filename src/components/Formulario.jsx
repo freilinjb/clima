@@ -1,12 +1,6 @@
 import React, {useState} from 'react'
 
-const Formulario = () => {
-
-    //state del formulario
-    const [busqueda, setBusqueda] = useState({
-        ciudad: '',
-        pais: ''
-    });
+const Formulario = ({busqueda, setBusqueda}) => {
 
     const [error, setError] = useState(false)
 
@@ -16,7 +10,7 @@ const Formulario = () => {
         setBusqueda({
             ...busqueda,
             [e.target.name] : e.target.value
-        })
+        });
     }
 
     const { ciudad, pais } = busqueda;
@@ -55,7 +49,7 @@ const Formulario = () => {
                 <option value="PE">Perú</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-block btn-lg btn-warning text-dark mb-5">Buscar Clima</button>
+            <button type="submit" className="btn btn-block btn-lg btn-warning text-dark mb-5">Buscar Clima</button>
         </form>
      );
 }
