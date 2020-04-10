@@ -8,6 +8,8 @@ const Formulario = () => {
         pais: ''
     });
 
+    const [error, setError] = useState(false)
+
     //funcion que colona los elementos en el state
     const handleChange = e => {
         //actualizar el state
@@ -17,10 +19,26 @@ const Formulario = () => {
         })
     }
 
-
     const { ciudad, pais } = busqueda;
+
+    const handleSubmit =e=> {
+        e.preventDefault();
+
+
+        //Validar 
+        if(ciudad.trim() === '' || pais.trim() === '') {
+            setError(true);
+            return;
+        }
+
+        setError(false);
+
+
+        //Pasar al componente Principal
+    }
     return ( 
-        <form>
+        <form onSubmit={handleSubmit}>
+             { error ? <p className="alert alert-danger error text-danger">Todos los campos son obligatorios </p> : null}
             <div className="form-group">
               <input type="text" name="ciudad" onChange={handleChange} value={ciudad} id="ciudad" className="form-control" placeholder="Ciudad" aria-describedby="helpId"/>
             </div>
@@ -37,6 +55,7 @@ const Formulario = () => {
                 <option value="PE">Perú</option>
               </select>
             </div>
+            <button type="submit" class="btn btn-block btn-lg btn-warning text-dark mb-5">Buscar Clima</button>
         </form>
      );
 }
